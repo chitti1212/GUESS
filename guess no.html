@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+         body{
+        text-align: center;
+         background-image: url("math1.jpg");
+         background-repeat:no-repeat;
+         background-size: cover;
+         margin-top: 250px;
+         margin-left: 95px;
+
+    }
+    
+    
+    </style>
+    
+    <body>
+        
+             
+        <h2>Guess The Number</h2>
+        <h4>Guess The Number between 1 to 100</h4>
+        <input type="number" id="guessInput" max="100"><br>
+        <br>
+        <button id="guessbtn">submit</button>
+        <p id="msg"></p>
+        </body>
+        <script type="text/javascript" src="game.js"></script>
+        </html>
+        
+        <script>
+        var randomNumber=Math.floor(Math.random()*100)+1;
+var attempts=0;
+document.getElementById("guessbtn").addEventListener('click',function(){
+	var guess=parseInt(document.getElementById("guessInput").value)
+	attempts++;
+	if(guess===randomNumber){
+		displaymsg("Congrulations!you guessed the number in" + attempts +"attempt")
+		document.getElementById("guessbtn").disabled=true;	
+	}
+	else if(guess>randomNumber){
+		displaymsg("To high! try a lower number.")
+	}
+	else {
+         displaymsg("To low! try a higher number.")
+	}
+});
+function displaymsg(K){
+	document.getElementById("msg").textContent=K;
+}
+</script>
+</body>
+</html>
